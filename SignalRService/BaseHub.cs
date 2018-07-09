@@ -29,7 +29,7 @@ namespace SignalRService
             //用户下线
             string connId = Context.ConnectionId;
             var model = List.SingleOrDefault(p => p == connId);
-            if (model == null)
+            if (model != null)
             {
                 List.Remove(model);
             }
