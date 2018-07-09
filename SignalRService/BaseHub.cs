@@ -9,7 +9,6 @@ namespace SignalRService
 {
     public class BaseHub : Hub
     {
-
         protected static IList<string> List = new List<string>();
 
         public override Task OnConnected()
@@ -21,8 +20,14 @@ namespace SignalRService
             {
                 List.Add(connId);
             }
+            this.Init();
             return base.OnConnected();
         }
+
+        public virtual void Init()
+        {
+        }
+
 
         public override Task OnDisconnected(bool stopCalled)
         {
